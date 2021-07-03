@@ -1,0 +1,30 @@
+{% extends 'thimble/base.html' %}
+{% load static %}
+{% block body %}
+
+<form class="d-flex position-absolute end-0 p-4" method="GET">
+  {% csrf_token %}
+  {{ form }}
+  <button class="btn btn-outline-dark" type="submit">Поиск</button>
+</form>
+<h1 class="display-1 text-center p-4">Ваши наперстки</h1>
+<div class="container">
+  <div class="row">
+    {% for thimble in thimbles %}
+    <div class="card m-2" style="width: 18rem;">
+        <img src="{{ thimble.image.url }}"class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ thimble.city }}</h5>
+            <p class="card-text">{{ thimble.country }}</p>
+            <a href="{% url 'thimbles_info' thimble.id%}" class="btn btn-dark">Посмотреть</a>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% if thimbles.count == 0 %}
+<div class="text-center "><h1>Здесь пусто :(</h1>
+    <h5 class="pt-md-3">Вы пока что не добавили сюда ни одного наперстка. Это можно сделать, нажав на <a href="/thimble/add" class="text-decoration-none">Добавить</a>.</h5>
+    </div>
+{% endif %}
+{% endblock %}

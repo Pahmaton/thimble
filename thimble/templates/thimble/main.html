@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %} Наперстки {% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+{% load static %}
+{% block body %}
+<div class="text-center p-5">
+    <h1 class="display-1">Наперстки</h1>
+    <div class="container">
+    <em class="lead font-weight-normal">Диджитабулизм – довольно популярный и активно развивающийся вид коллекционирования.
+        Клубы собирателей напёрстков существуют повсеместно. Эти непритязательные вещицы милы,
+        компактны и довольно доступны.</em>
+    </div>
+<div class="container ps-5">
+  <div class="row">
+    <div class="card m-2" style="width: 25rem;">
+        <img src="{% static 'thimble/images/russia.jpg' %}"class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Российская Федерация</h5>
+            <p class="card-text">Не во всех городах Российской Федерации есть сувенирные наперстки, однако они здесь есть.</p>
+            <a href="russia" class="btn btn-dark">Посмотреть</a>
+        </div>
+    </div>
+      <div class="card m-2" style="width: 25rem;">
+        <img src="{% static 'thimble/images/world.jpg' %}"class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Страны мира</h5>
+            <p class="card-text">Во всех странах мира можно повстречать разные наперстки, будь то в Европе или в Африке.</p>
+            <a href="#" class="btn btn-dark">Посмотреть</a>
+        </div>
+    </div>
+      <div class="card m-2" style="width: 25rem;">
+        <img src="{% static 'thimble/images/strange_thimbles.jpg' %}"class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Сувенирно-коллекционные</h5>
+            <p class="card-text">Существует много необычных наперстков: совы, мельницы, рабочие, домики, церковные и т.д.</p>
+            <a href="#" class="btn btn-dark">Посмотреть</a>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}

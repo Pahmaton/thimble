@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %} Наперстки {% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+
+{% load static %}
+{% block body %}
+<div class="text-center p-5">
+    <h1 class="display-1">Российская Федерация</h1>
+    <div class="container">
+    <em class="lead font-weight-normal">Российская Федерация - самое большое по площади в мире государство.</em>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center ">
+            <p>
+              <button class="btn btn-secondary p-2" style="width: 39rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                По алфавиту
+              </button>
+              <button class="btn btn-secondary p-2 mx-2" style="width: 39rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+                По округам
+              </button>
+            </p>
+            <div class="pt-2"></div>
+        </div>
+        <div class="row justify-content-center">
+            <ul class="list-group collapse" id="collapseExample" style="width: 40rem;">
+                <li class="list-group-item active">По алфавиту</li>
+                <li><a class="list-group-item" href="#">Архангельск</a></li>
+                <li><a class="list-group-item" href="#">Балашиха</a></li>
+                <li><a class="list-group-item" href="#">Владимир</a></li>
+                <li><a class="list-group-item" href="#"> class="list-group-item">...</a></li>
+            </ul>
+            <ul class="list-group collapse" id="collapseExample2" style="width: 40rem;">
+                <li class="list-group-item active">По округам</li>
+                <div class="dropdown">
+                  <a class="btn list-group-item dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                    Европейский Север
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Архангельск</a></li>
+                    <li><a class="dropdown-item" href="#">Мурманск</a></li>
+                    <li><a class="dropdown-item" href="#">Воркута</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown">
+                  <a class="btn list-group-item dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">
+                    Центральная Россия
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                    <li><a class="dropdown-item" href="#">Москва</a></li>
+                    <li><a class="dropdown-item" href="#">Владимир</a></li>
+                    <li><a class="dropdown-item" href="#">Рязань</a></li>
+                  </ul>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

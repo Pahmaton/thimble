@@ -1,0 +1,30 @@
+{% extends "thimble/base.html" %}
+{% load static %}
+{% block body %}
+<div class="d-flex justify-content-center pt-5">
+<div class="card" style="width: 50rem;">
+  <img src="{{ thimbles_info.image.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <a href="edit" class="btn btn-warning bg-gradient">Редактировать</a>
+        <a href="delete" class="btn btn-danger bg-gradient">Удалить</a>
+    </div>
+    </div>
+    <div class="card">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Номер: </strong>{{ thimbles_info.number }}</li>
+            <li class="list-group-item"><strong>Страна: </strong>{{ thimbles_info.country }}</li>
+            <li class="list-group-item"><strong>Город: </strong>{{ thimbles_info.city }}</li>
+            <li class="list-group-item"><strong>Материал: </strong>{{ thimbles_info.matherial }}</li>
+            <li class="list-group-item"><strong>Описание: </strong>{{ thimbles_info.description }}</li>
+            <li class="list-group-item"><strong>Серия: </strong>{{ thimbles_info.seria }}</li>
+            <li class="list-group-item"><strong>Стеллаж: </strong>{{ thimbles_info.stellaj }}</li>
+            <li class="list-group-item"><strong>Полка: </strong>{{ thimbles_info.shelf }}</li>
+            <li class="list-group-item"><strong>Дата: </strong>{{ thimbles_info.date }}</li>
+            <li class="list-group-item"><strong>Где: </strong>{{ thimbles_info.where }}</li>
+            <li class="list-group-item"><strong>Кто подарил: </strong>{{ thimbles_info.who_present }}</li>
+            <li class="list-group-item"><strong>Добавлен на сайт: </strong>{{ thimbles_info.created_at }}</li>
+            <li class="list-group-item"><strong>Тип: </strong>{{ thimbles_info.type }}</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
