@@ -12,30 +12,15 @@
         <li class="list-group-item" id="city">{{ form.city }}</li>
         <label for="matherial">Материал:</label>
         <li class="list-group-item" id="matherial">{{ form.matherial }}</li>
-        <label for="description">Описание:</label>
-        <li class="list-group-item" id="description">{{ form.description }}</li>
-        <label for="seria">Серия:</label>
-        <li class="list-group-item" id="seria">{{ form.seria }}</li>
-    </ul>
-    <ul class="list-group">
-        <label for="stellaj">Стеллаж:</label>
-        <li class="list-group-item" id="stellaj">{{ form.stellaj }}</li>
-        <label for="shelf">Полка:</label>
-        <li class="list-group-item" id="shelf">{{ form.shelf }}</li>
-        <label for="date">Дата:</label>
-        <li class="list-group-item" id="date">{{ form.date }}</li>
-        <label for="where">Где:</label>
-        <li class="list-group-item" id="where">{{ form.where }}</li>
-        <label for="who_present">Кто подарил:</label>
-        <li class="list-group-item" id="who_present">{{ form.who_present }}</li>
         <label for="type">Тип наперстка:</label>
         <li class="list-group-item" id="type">{{ form.type }}</li>
+        <label for="description">Комментарии:</label>
+        <li class="list-group-item" id="description">{{ form.description }}</li>
         <label for="image">Изображение:</label>
         <li class="list-group-item" id="image">{{ form.image }}</li>
         {% if form.instance.image %}
         <li class="list-group-item" id="preview" style="width: 18rem;"><img src="{{ form.instance.image.url }}"class="card-img-top" alt="..."></li>
         {% endif %}
-            {{ form.created_at }}
         &#160;
         <input id="submit" class="btn btn-dark btn-lg bg-gradient" type="submit" value="Создать">
     </ul>

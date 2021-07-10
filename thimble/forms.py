@@ -5,8 +5,7 @@ from .models import Thimble, City, Country
 class ThimbleForm(forms.ModelForm):
     class Meta:
         model = Thimble
-        fields = ('number', 'country', 'city', 'matherial', 'description', 'seria', 'stellaj', 'shelf', 'where',
-                  'who_present', 'date', 'type', 'image')
+        fields = ('number', 'country', 'city', 'matherial', 'type', 'description', 'image')
 
 class Search(forms.Form):
     search = forms.CharField(required=False, label="")

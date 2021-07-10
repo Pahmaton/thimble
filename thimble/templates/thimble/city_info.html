@@ -1,15 +1,15 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>{% block title %} Наперстки {% endblock %}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</head>
+{% extends 'thimble/base.html'%}
+{% load static %}
+{% block body %}
 
 <div class="text-center">
     <h1>{{ city_info.name }}</h1>
+    <h6>{{ city_info.country }}</h6>
+    {% if city_info.region != 'Иностранный' %}
     <h6>{{ city_info.region }}</h6>
+    {% endif %}
+    <a href="del_cities" class="btn btn-danger bg-gradient">Удалить</a>
+    <a href="edit_city" class="btn btn-warning bg-gradient">Редактировать</a>
 </div>
 <div class="row justify-content-center">
         {% for thimble in thimbles %}
@@ -23,3 +23,5 @@
             </div>
         {% endfor %}
 </div>
+
+{% endblock %}

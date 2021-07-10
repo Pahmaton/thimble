@@ -1,0 +1,24 @@
+{% extends 'thimble/base.html'%}
+{% load static %}
+{% block body %}
+<div class="text-center p-5">
+    <h1 class="display-1">Рабочий</h1>
+    <div class="container">
+    <em class="lead font-weight-normal">Рабочие - это круто</em>
+    </div>
+</div>
+<div class="container">
+  <div class="row">
+    {% for thimble in thimbles %}
+    <div class="card m-2" style="width: 18rem;">
+        <img src="{{ thimble.image.url }}"class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ thimble.city }}</h5>
+            <p class="card-text">{{ thimble.country }}</p>
+            <a href="{% url 'thimbles_info' thimble.id%}" class="btn btn-dark">Посмотреть</a>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

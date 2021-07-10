@@ -1,0 +1,22 @@
+{% extends 'thimble/base.html'%}
+{% load static %}
+{% block body %}
+
+<form class="d-flex position-absolute end-0 p-4" method="GET">
+  {% csrf_token %}
+  {{ form }}
+  <button class="btn btn-outline-dark" type="submit">Поиск</button>
+</form>
+<h1 class="display-1 text-center p-4">Все города</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <ul class="list-group" style="width: 40rem;">
+    {% for city in cities %}
+    <a href="{% url 'city_info' city.id%}"><li class="list-group-item text-center">{{ city.name }}</li></a>
+    {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}
+
+

@@ -37,6 +37,7 @@ def create_city(request, city_id=None):
     form = CityForm(request.POST or None, instance=city)
     if form.is_valid():
         form.save()
+        return redirect('edit_city', city_id=form.instance.id)
     # TODO errors when
     return render(request, 'thimble/edit_city.html', context={
         'form': form,
@@ -52,6 +53,17 @@ def thimbles(request):
         'form': form
     }
     return render(request, 'thimble/thimbles.html', context)
+
+def all_cities(request):
+    form = Search(request.GET or None)
+    cities = City.objects.all()
+    if form.is_valid():
+        cities = City.objects.filter(name__istartswith=form.cleaned_data['search'])
+    context = {
+        'cities': cities,
+        'form': form,
+    }
+    return render(request, 'thimble/all_cities.html', context)
 
 def main(request):
     return render(request, 'thimble/main.html')
@@ -77,6 +89,9 @@ def russia(request):
     }
     return render(request, 'thimble/russia.html', context)
 
+def souvenir(request):
+    return render(request, 'thimble/souvenir.html')
+
 def countries(request):
     countries = sorted(Country.objects.all(), key=key_sort)
     regions = {}
@@ -87,30 +102,6 @@ def countries(request):
         'regions': regions
     }
     return render(request, 'thimble/countries.html', context)
-
-def souvenir(request):
-    form = Search(request.GET or None)
-    thimbles = Thimble.objects.filter(type="Сувенирный")
-    if form.is_valid():
-        thimbles = Thimble.objects.filter(city__istartswith=form.cleaned_data['search'], type="Сувенирный")
-    context = {
-        'thimbles': thimbles,
-        'form': form,
-    }
-    return render(request, 'thimble/souvenir.html', context)
-
-def classic(request):
-    form = Search(request.GET or None)
-    thimbles = Thimble.objects.filter(type="Рабочий")
-    if form.is_valid():
-        thimbles = Thimble.objects.filter(city__istartswith=form.cleaned_data['search'], type="Рабочий")
-    context = {
-        'thimbles': thimbles,
-        'form': form,
-    }
-    return render(request, 'thimble/classic.html', context)
-
-
 
 def thimbles_info(request, thimble_id):
    context = {
@@ -135,7 +126,47 @@ def city_info(request, city_id):
     }
     return render(request, 'thimble/city_info.html', context)
 
+def church(request):
+    thimbles = Thimble.objects.filter(type='Церковный')
+    context = {
+        'thimbles': thimbles,
+    }
+    return render(request, 'thimble/church.html', context)
+
+def working(request):
+    thimbles = Thimble.objects.filter(type='Рабочий')
+    context = {
+        'thimbles': thimbles,
+    }
+    return render(request, 'thimble/working.html', context)
+
+def promisel(request):
+    thimbles = Thimble.objects.filter(type='Народные промыслы')
+    context = {
+        'thimbles': thimbles,
+    }
+    return render(request, 'thimble/promisel.html', context)
+
+def sova(request):
+    thimbles = Thimble.objects.filter(type='Совы')
+    context = {
+        'thimbles': thimbles,
+    }
+    return render(request, 'thimble/sova.html', context)
+
+def people(request):
+    thimbles = Thimble.objects.filter(type='Известные личности')
+    context = {
+        'thimbles': thimbles,
+    }
+    return render(request, 'thimble/people.html', context)
+
 def del_thimbles(request, thimble_id):
     b = Thimble.objects.get(id=thimble_id)
     b.delete()
     return redirect(reverse('thimbles'))
+
+def del_cities(request, city_id):
+    b = City.objects.get(id=city_id)
+    b.delete()
+    return redirect(reverse('all_cities'))

@@ -1,6 +1,12 @@
+{% extends 'thimble/base.html'%}
+{% load static %}
+{% block body %}
 Добавьте свой город
 <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-{{ form }}
+{% csrf_token %}
+{{ form.name }}
+{{ form.region }}
+{{ form.country }}
 <input id="submit" class="btn btn-dark btn-lg bg-gradient" type="submit" value="Создать">
 </form>
+{% endblock %}

@@ -1,30 +1,70 @@
-{% extends 'thimble/base.html' %}
+{% extends 'thimble/base.html'%}
 {% load static %}
 {% block body %}
-
-<form class="d-flex position-absolute end-0 p-4" method="GET">
-  {% csrf_token %}
-  {{ form }}
-  <button class="btn btn-outline-dark" type="submit">Поиск</button>
-</form>
-<h1 class="display-1 text-center p-4">Ваши наперстки</h1>
-<div class="container">
-  <div class="row">
-    {% for thimble in thimbles %}
-    <div class="card m-2" style="width: 18rem;">
-        <img src="{{ thimble.image.url }}"class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{ thimble.city }}</h5>
-            <p class="card-text">{{ thimble.country }}</p>
-            <a href="{% url 'thimbles_info' thimble.id%}" class="btn btn-dark">Посмотреть</a>
-        </div>
+<div class="text-center">
+    <h1 class="display-1">Сувенирно-коллекционные</h1>
+    <div class="container">
+    <em class="lead font-weight-normal">Существуют много разных наперстков, даже в виде сов!</em>
     </div>
-    {% endfor %}
-  </div>
 </div>
-{% if thimbles.count == 0 %}
-<div class="text-center "><h1>Здесь пусто :(</h1>
-    <h5 class="pt-md-3">Вы пока что не добавили сюда ни одного наперстка. Это можно сделать, нажав на <a href="/thimble/add" class="text-decoration-none">Добавить</a>.</h5>
+<div class="mx-auto" style="width: 40rem;">
+    <div class="card bg-dark text-white" style="width: 40rem;">
+      <img src="{% static 'thimble/images/church.png' %}" class="card-img" alt="...">
+      <div class="card-img-overlay">
+        <h5 class="card-title">Церковные</h5>
+        <p class="card-text">Существует много наперстков на церковную тематику</p>
+      </div>
     </div>
-{% endif %}
+    <div class="mx-auto p-3" style="width: 14rem;">
+    <a href="church" class="btn btn-primary">Перейти куда-нибудь</a>
+        </div>
+</div>
+<div class="mx-auto" style="width: 40rem;">
+    <div class="card bg-dark text-white" style="width: 40rem;">
+      <img src="{% static 'thimble/images/work.png' %}" class="card-img" alt="...">
+      <div class="card-img-overlay ">
+        <h5 class="card-title">Рабочие</h5>
+        <p class="card-text">Существует много интересных рабочих наперстков</p>
+      </div>
+    </div>
+    <div class="mx-auto p-3" style="width: 14rem;">
+    <a href="working" class="btn btn-primary">Перейти куда-нибудь</a>
+        </div>
+</div>
+<div class="mx-auto" style="width: 40rem;">
+    <div class="card bg-dark text-white" style="width: 40rem;">
+      <img src="{% static 'thimble/images/promisel.png' %}" class="card-img" alt="...">
+      <div class="card-img-overlay ">
+        <h5 class="card-title">Народные промыслы</h5>
+        <p class="card-text">Хохлома, палех и другие...</p>
+      </div>
+    </div>
+    <div class="mx-auto p-3" style="width: 14rem;">
+    <a href="promisel" class="btn btn-primary">Перейти куда-нибудь</a>
+        </div>
+</div>
+<div class="mx-auto" style="width: 40rem;">
+    <div class="card bg-dark text-white" style="width: 40rem;">
+      <img src="{% static 'thimble/images/sova.png' %}" class="card-img" alt="...">
+      <div class="card-img-overlay ">
+        <h5 class="card-title">Сова</h5>
+        <p class="card-text">Сова</p>
+      </div>
+    </div>
+    <div class="mx-auto p-3" style="width: 14rem;">
+    <a href="sova" class="btn btn-primary">Перейти куда-нибудь</a>
+        </div>
+</div>
+<div class="mx-auto" style="width: 40rem;">
+    <div class="card bg-dark text-white" style="width: 40rem;">
+      <img src="{% static 'thimble/images/people.png' %}" class="card-img" alt="...">
+      <div class="card-img-overlay ">
+        <h5 class="card-title">Известные личности</h5>
+        <p class="card-text">Правители, композиторы и т.д.</p>
+      </div>
+    </div>
+    <div class="mx-auto p-3" style="width: 14rem;">
+    <a href="people" class="btn btn-primary">Перейти куда-нибудь</a>
+        </div>
+</div>
 {% endblock %}

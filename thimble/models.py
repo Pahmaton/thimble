@@ -42,19 +42,16 @@ class Thimble(models.Model):
     country = models.ForeignKey(Country, on_delete=models.PROTECT, null=True)
     city = models.ForeignKey(City, on_delete=models.PROTECT, null=True)
     matherial = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
-    seria = models.CharField(max_length=200)
-    stellaj = models.CharField(max_length=200)
-    shelf = models.CharField(max_length=200)
-    where = models.CharField(max_length=200)
-    who_present = models.CharField(max_length=200)
-    date = models.CharField(max_length=200)
     #created_at = models.DateTimeField(auto_now_add=True)
     THIMBLES_TYPES = (
         ('Обычный', 'Обычный'),
+        ('Церковный', 'Церковный'),
         ('Рабочий', 'Рабочий'),
-        ('Сувенирный', 'Сувенирный'),
+        ('Народные промыслы', 'Народные промыслы'),
+        ('Совы', 'Совы'),
+        ('Известные личности', 'Известные личности')
     )
-    type = models.CharField(max_length=10, choices=THIMBLES_TYPES)
+    type = models.CharField(max_length=200, choices=THIMBLES_TYPES)
+    description = models.TextField()
     image = models.ImageField(upload_to="images")
 
